@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // GitHub Pages serves plain files, so the site ships as a static export.
+  output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
