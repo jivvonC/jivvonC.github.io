@@ -59,7 +59,7 @@ export function SelectedWork() {
                 </p>
               ) : null}
               {item.question ? (
-                <p className="mt-4 max-w-2xl font-serif text-xl leading-snug text-pretty italic">
+                <p className="mt-4 max-w-2xl font-serif text-xl leading-snug text-pretty text-[#124375] italic">
                   {item.question}
                 </p>
               ) : null}

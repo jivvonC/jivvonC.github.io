@@ -21,7 +21,7 @@ export function Hero() {
           {site.name}
         </h1>
         <p
-          className="rise mt-5 max-w-xl font-serif text-2xl leading-snug text-pretty text-accent italic sm:text-[1.85rem]"
+          className="rise mt-5 max-w-xl font-serif text-2xl leading-snug text-pretty text-[#124375] italic sm:text-[1.85rem]"
           style={{ "--i": 2 } as CSSProperties}
         >
           {hero.statement}
