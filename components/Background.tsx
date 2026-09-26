@@ -7,7 +7,7 @@ export function Background() {
   const { background } = site;
 
   return (
-    <Section id="about" className="border-t border-line">
+    <Section id="about" className="bg-band">
       <Reveal>
         <SectionIntro title={background.title} titleId="about-title">
           {background.lead}

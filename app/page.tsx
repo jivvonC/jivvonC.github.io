@@ -9,7 +9,17 @@ import { site } from "@/content/site";
 
 export default function Home() {
   return (
-    <div id="top">
+    <div id="top" className="relative isolate">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[46rem]"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/hero/wash.jpg)" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-55% to-paper" />
+      </div>
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"

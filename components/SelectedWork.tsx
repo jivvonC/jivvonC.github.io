@@ -20,21 +20,31 @@ export function SelectedWork() {
             as="article"
             key={item.index}
             delay={i * 80}
-            className={`group relative grid gap-3 border-t border-line py-10 sm:gap-8 ${
+            className={`group relative grid gap-3 sm:gap-8 ${
+              item.featured
+                ? "mb-10 rounded-xl bg-tint px-6 py-10 sm:px-10"
+                : "border-t border-line py-10"
+            } ${
               item.image
                 ? "sm:grid-cols-[5.5rem_1fr] lg:grid-cols-[5.5rem_minmax(0,1fr)_20rem]"
                 : "sm:grid-cols-[5.5rem_1fr]"
             }`}
           >
-            <span
-              aria-hidden="true"
-              className="absolute top-0 bottom-0 -left-5 w-px origin-top scale-y-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-y-100 sm:-left-8 motion-reduce:transition-none"
-            />
+            {item.featured ? null : (
+              <span
+                aria-hidden="true"
+                className="absolute top-0 bottom-0 -left-5 w-px origin-top scale-y-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-y-100 sm:-left-8 motion-reduce:transition-none"
+              />
+            )}
             <p className="font-serif text-2xl text-accent transition-transform duration-500 ease-out group-hover:translate-x-1 motion-reduce:transition-none">
               {item.index}
             </p>
             <div>
-              <p className="text-[0.72rem] font-medium tracking-[0.16em] text-faint uppercase">
+              <p
+                className={`text-[0.72rem] font-medium tracking-[0.16em] uppercase ${
+                  item.featured ? "text-accent" : "text-faint"
+                }`}
+              >
                 {item.kicker}
               </p>
               <h3 className="mt-2 font-serif text-3xl leading-tight tracking-tight text-pretty">
@@ -42,7 +52,11 @@ export function SelectedWork() {
               </h3>
               <p className="mt-2 text-sm text-muted">{item.meta}</p>
               {item.metaNote ? (
-                <p className="mt-1 text-xs text-faint">{item.metaNote}</p>
+                <p
+                  className={`mt-1 text-xs ${item.featured ? "text-muted" : "text-faint"}`}
+                >
+                  {item.metaNote}
+                </p>
               ) : null}
               {item.question ? (
                 <p className="mt-4 max-w-2xl font-serif text-xl leading-snug text-pretty italic">
@@ -53,14 +67,13 @@ export function SelectedWork() {
                 {item.body}
               </p>
               <p className="mt-4 text-sm">{item.tags.join(" · ")}</p>
-              {item.note ? (
-                <p className="mt-5 max-w-2xl border-l border-line pl-4 text-sm leading-relaxed text-pretty text-faint">
-                  {item.note}
-                </p>
-              ) : null}
             </div>
             {item.image ? (
-              <div className="relative aspect-[1024/557] overflow-hidden border border-line bg-card">
+              <div
+                className={`relative aspect-[1024/557] overflow-hidden bg-card ${
+                  item.featured ? "rounded-lg" : "border border-line"
+                }`}
+              >
                 <Image
                   src={item.image.src}
                   alt={item.image.alt}

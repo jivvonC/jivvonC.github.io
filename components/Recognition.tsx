@@ -6,7 +6,7 @@ export function Recognition() {
   const { recognition } = site;
 
   return (
-    <Section className="border-t border-line py-16 sm:py-20">
+    <Section className="py-16 sm:py-20">
       <Reveal>
         <SectionIntro title={recognition.title} titleId="recognition-title" />
       </Reveal>
@@ -18,7 +18,7 @@ export function Recognition() {
             delay={i * 70}
             className="grid gap-1 border-b border-line py-5 sm:grid-cols-[minmax(0,18rem)_1fr] sm:gap-8"
           >
-            <p className="font-medium">{item.title}</p>
+            <p className="font-medium text-accent">{item.title}</p>
             <p className="text-sm leading-relaxed text-muted">{item.detail}</p>
           </Reveal>
         ))}

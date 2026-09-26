@@ -31,6 +31,8 @@ export type WorkItem = {
   tags: string[];
   note?: string;
   image?: { src: string; alt: string };
+  /** Renders the entry as a tinted card instead of a list row. */
+  featured?: boolean;
 };
 
 export const site = {
@@ -56,19 +58,8 @@ export const site = {
   hero: {
     status: "Undergraduate Researcher · Seoul · 2026",
     statement: "Designing AI interactions that complement human thinking.",
-    fields: "Human-AI Interaction · HCI · Interactive Systems",
     summary:
-      "I am an undergraduate researcher interested in Human-AI Interaction and HCI. My work explores how interactive AI systems can support people in exploring ideas, reasoning through alternatives, and making decisions.",
-    affiliation: "Kyung Hee University",
-    degree: "B.M. Media Studies · B.E. Computer Science & Engineering",
-    timeline: "Expected February 2027",
-    lab: "Immersive Computing & Interaction Lab",
-    artifact: {
-      src: "/research/context-branching.jpg",
-      alt: "A person wearing a VR headset stands in a virtual room, facing conversation panels linked into spatial branches.",
-      caption: "VR prototype of context branching for LLM conversations.",
-      variant: "overview",
-    } satisfies Artifact,
+      "I am an undergraduate researcher at Kyung Hee University, Korea, exploring Human-AI Interaction and HCI. With a background in interaction design and software development, I study how people interact with, understand, and collaborate with AI.",
   },
   interests: {
     title: "Research interests",
@@ -78,13 +69,21 @@ export const site = {
         index: "01",
         title: "Human-AI Interaction",
         body: "Designing AI systems that support human reasoning, exploration, and decision-making while preserving user agency and control.",
-        tags: ["LLM Interaction", "AI-assisted Decision Making", "Human-Centered AI"],
+        tags: [
+          "LLM Interaction",
+          "AI-assisted Decision Making",
+          "Human-Centered AI",
+        ],
       },
       {
         index: "02",
         title: "Human-AI Collaboration",
         body: "Exploring how AI can act as a collaborative partner that supports human thinking, exploration, and creation while preserving human agency.",
-        tags: ["AI as a Collaborative Partner", "Human in the Loop", "Human Agency"],
+        tags: [
+          "AI as a Collaborative Partner",
+          "Human in the Loop",
+          "Human Agency",
+        ],
       },
       {
         index: "03",
@@ -96,10 +95,11 @@ export const site = {
   },
   selectedWork: {
     title: "Selected work",
-    lead: "A VR research system I study and build, a user research study, and software I shipped with a team.",
+    lead: "My work spans research, interaction design, and software development, reflecting my interest in how people interact with technology.",
     items: [
       {
         index: "01",
+        featured: true,
         kicker: "Current Research · Human-AI Interaction",
         title:
           "A VR-Based Context Branching for Non-linear Exploration of LLM Conversations",
@@ -107,9 +107,8 @@ export const site = {
         metaNote: "* First author",
         question:
           "How can spatial interaction support people in exploring and organizing multiple lines of conversation with an LLM?",
-        body: "I research interaction techniques for non-linear LLM conversations in virtual reality, with a focus on branching, context management, and exploration of alternative conversational paths. The prototype runs on Unity and Meta Quest 3.",
+        body: "I investigate interaction techniques for non-linear LLM conversations in VR, focusing on branching, context management, and conversational exploration.",
         tags: ["Human-AI Interaction", "LLM", "VR/XR", "Unity · Meta Quest 3"],
-        note: "Chon, J., & In, S. (2026). Proceedings of the 2026 Korean Computer Congress (KCC), 1757–1759. Scientific poster presentation, Honorable Mention, Undergraduate/Junior Paper Competition.",
         image: {
           src: "/research/context-branching.jpg",
           alt: "A person wearing a VR headset stands in a virtual room, facing conversation panels linked into spatial branches.",
@@ -120,7 +119,7 @@ export const site = {
         kicker: "UX Research · AI Feature Design",
         title: "AI-Assisted Mobility Experience",
         meta: "KakaoT · Team Leader, KHUX · March–May 2026",
-        body: "Led UX research for the mobility service KakaoT through a survey (n=102) and interviews (n=9), to find where AI could support mobility decisions. I then redesigned key flows and built high-fidelity prototypes of the AI features.",
+        body: "Conducted UX research to explore how AI could support mobility decisions, then redesigned key flows and prototyped AI-assisted features.",
         tags: ["Survey n=102", "Interviews n=9", "UX Research", "Prototyping"],
       },
       {
@@ -128,18 +127,23 @@ export const site = {
         kicker: "Software Engineering · Frontend",
         title: "Event Service Booking Platform",
         meta: "University of Wollongong · February–June 2025",
-        body: "Built an event booking platform in a software design course. I implemented real-time chat with WebSocket/STOMP, user authentication, a review system, and the interface, and integrated REST APIs with the backend team.",
-        tags: ["WebSocket/STOMP", "Authentication", "Review System", "REST API"],
+        body: "Built an event booking platform with a focus on frontend development, real-time interaction, and API integration.",
+        tags: [
+          "WebSocket/STOMP",
+          "Authentication",
+          "Review System",
+          "REST API",
+        ],
       },
     ] as WorkItem[],
     more: {
       title: "More design work",
-      body: "Interface projects such as Riido and Ditto are on the design portfolio.",
+      body: "More UX/UI Design projects can be found on the design portfolio.",
     },
   },
   background: {
     title: "Background",
-    lead: "Media studies and computer science, then research, an exchange semester, and a student HCI community.",
+    lead: "My background spans Media Studies and Computer Science, giving me complementary perspectives on people and technology. Through UX research, interaction design, and software development, I became interested in the space between them: how people interact with computational systems. This led me from designing interfaces to researching Human-AI Interaction.",
     items: [
       {
         label: "Education",
@@ -166,7 +170,7 @@ export const site = {
             title: "Immersive Computing & Interaction Lab",
             logo: "/logos/ici-lab.png",
             meta: "Undergraduate Researcher · March 2026 – Present",
-            body: "I study interaction techniques for LLMs in virtual reality, and join English research meetings with Ph.D. students and faculty from several institutions.",
+            body: "Researching interaction techniques for exploring LLM conversations in virtual reality, from system development and interaction design to research study design and evaluation.",
           },
         ],
       },
@@ -177,7 +181,7 @@ export const site = {
             title: "KHUX — UX/HCI Student Association",
             logo: "/logos/khux.png",
             meta: "Director, Education Team Leader · September 2025 – Present",
-            body: "I direct and mentor junior members, create UX/HCI learning materials, and publish UX articles. I also collaborate on industry-sponsored projects, MVP development, and AI feature proposals.",
+            body: "Led and collaborated on UX/HCI projects involving user research, interaction design, and prototyping across multidisciplinary teams.",
           },
         ],
       },
@@ -185,7 +189,12 @@ export const site = {
     skills: [
       {
         label: "Research",
-        items: ["User Interviews", "Surveys", "Usability Testing", "A/B Testing"],
+        items: [
+          "User Interviews",
+          "Surveys",
+          "Usability Testing",
+          "A/B Testing",
+        ],
       },
       {
         label: "Design",

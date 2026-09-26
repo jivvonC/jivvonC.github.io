@@ -6,6 +6,14 @@ import { site } from "@/content/site";
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const sections = site.nav
@@ -39,7 +47,11 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md transition-colors duration-300 ${
+        scrolled || open ? "" : "nav-top"
+      }`}
+    >
       <div className="mx-auto flex h-16 w-full max-w-[70rem] items-center justify-between gap-6 px-5 sm:px-8">
         <a href="#top" className="text-sm tracking-[0.16em] uppercase">
           Jiwon Chon
