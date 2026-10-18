@@ -30,10 +30,17 @@ export function Background() {
                   <Image
                     src={entry.logo}
                     alt=""
-                    width={48}
-                    height={48}
-                    className={`mt-1 size-12 shrink-0${
-                      entry.logo.endsWith("wollongong.png") ? " rounded-[3px]" : ""
+                    width={entry.logo.endsWith("ici.png") ? 160 : 48}
+                    height={entry.logo.endsWith("ici.png") ? 307 : 48}
+                    className={`mt-1 shrink-0 ${
+                      entry.logo.endsWith("ici.png")
+                        ? "h-12 w-auto"
+                        : "size-12 object-contain"
+                    }${
+                      entry.logo.endsWith("wollongong.png") ||
+                      entry.logo.endsWith("kyung-hee.png")
+                        ? " rounded-[3px]"
+                        : ""
                     }`}
                   />
                   <div>

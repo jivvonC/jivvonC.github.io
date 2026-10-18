@@ -33,6 +33,7 @@ export type WorkItem = {
   image?: { src: string; alt: string };
   /** Renders the entry as a tinted card instead of a list row. */
   featured?: boolean;
+  href?: string;
 };
 
 export const site = {
@@ -117,15 +118,22 @@ export const site = {
       {
         index: "02",
         kicker: "UX Research · AI Feature Design",
-        title: "AI-Assisted Mobility Experience",
-        meta: "KakaoT · Team Leader, KHUX · March–May 2026",
-        body: "Conducted UX research to explore how AI could support mobility decisions, then redesigned key flows and prototyped AI-assisted features.",
-        tags: ["Survey n=102", "Interviews n=9", "UX Research", "Prototyping"],
+        title: "AI-Assisted Mobility Experience Design",
+        href: "https://jiwonchon.framer.website/portfolio/kakaot",
+        meta: "KHUX · March–May 2026",
+        body: "Conducted UX research to explore how AI could support mobility decisions for Kakao Mobility, then redesigned key flows and prototyped AI-assisted features.",
+        tags: [
+          "Survey n=102",
+          "In-depth Interviews n=9",
+          "UX Research",
+          "Prototyping",
+        ],
       },
       {
         index: "03",
         kicker: "Software Engineering · Frontend",
-        title: "Event Service Booking Platform",
+        title: "Event Service Booking Platform Development",
+        href: "https://github.com/jivvonC/UOW-CSIT334-Eventra",
         meta: "University of Wollongong · February–June 2025",
         body: "Built an event booking platform with a focus on frontend development, real-time interaction, and API integration.",
         tags: [
@@ -153,7 +161,7 @@ export const site = {
             logo: "/logos/kyung-hee.png",
             meta: "Seoul, South Korea · March 2022 – February 2027 (expected)",
             body: "B.M. in Media Studies and B.E. in Computer Science and Engineering, double major.",
-            note: "GPA 3.89 / 4.3",
+            note: "GPA: 3.89/4.3 (overall), 3.9/4.3 (major)",
           },
           {
             title: "University of Wollongong",
@@ -168,7 +176,7 @@ export const site = {
         entries: [
           {
             title: "Immersive Computing & Interaction Lab",
-            logo: "/logos/ici-lab.png",
+            logo: "/logos/ici.png",
             meta: "Undergraduate Researcher · March 2026 – Present",
             body: "Researching interaction techniques for exploring LLM conversations in virtual reality, from system development and interaction design to research study design and evaluation.",
           },

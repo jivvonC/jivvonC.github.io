@@ -28,8 +28,17 @@ export function SelectedWork() {
               item.image
                 ? "sm:grid-cols-[5.5rem_1fr] lg:grid-cols-[5.5rem_minmax(0,1fr)_20rem]"
                 : "sm:grid-cols-[5.5rem_1fr]"
-            }`}
+            } ${item.href ? "cursor-pointer" : ""}`}
           >
+            {item.href ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10"
+                aria-label={`${item.title} (opens in a new tab)`}
+              />
+            ) : null}
             {item.featured ? null : (
               <span
                 aria-hidden="true"
@@ -49,6 +58,14 @@ export function SelectedWork() {
               </p>
               <h3 className="mt-2 font-serif text-3xl leading-tight tracking-tight text-pretty">
                 {item.title}
+                {item.href ? (
+                  <span
+                    aria-hidden="true"
+                    className="ml-2 inline-block text-[0.65em] text-accent transition-transform duration-300 ease-out group-hover:translate-x-px group-hover:-translate-y-px motion-reduce:transition-none"
+                  >
+                    ↗
+                  </span>
+                ) : null}
               </h3>
               <p className="mt-2 text-sm text-muted">{item.meta}</p>
               {item.metaNote ? (
