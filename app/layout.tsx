@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Lora } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geist = Geist({
@@ -44,7 +45,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        <Script
+          src="https://gc.zgo.at/count.js"
+          strategy="afterInteractive"
+          data-goatcounter="https://jiwonchon.goatcounter.com/count"
+        />
+      </body>
     </html>
   );
 }
